@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Crear detalle mes</title>
+    </h:head>
+    <h:body>
+        <h1>Crear Detalle Mes</h1>
+            <div>
+                <div>
+                    
+                <h:form style="display: flex; width: 100%; flex-direction: column; align-items: center; justify-content: center; padding: 15px;">
+                    
+                    <h:outputLabel value="#{textoProyecto.CrearDiasTrabajados}" for="dias"/>
+                    <h:inputText id="dias" value="#{detallemesController.field.diasTrabajados}" />
+                    
+                    <h:outputLabel value="#{textoProyecto.CrearHorasExtras}" for="horas"/>
+                    <h:inputText id="horas" value="#{detallemesController.field.horasExtras}" />
+                            
+                    <h:outputLabel value="#{textoProyecto.CrearCantidadSalario}" for="salario"/>
+                    <h:inputText id="salario" value="#{detallemesController.field.cantidadTrabajo}" />
+                    
+                    <h:outputLabel value="#{textoProyecto.CrearAuxilioCantidad}" for="auxilio"/>
+                    <h:inputText id="auxilio" value="#{detallemesController.field.auxlioCantidad}" />   
+                    
+                    <h:outputLabel value="#{textoProyecto.CrearAsignarPersona}" for="persona"/>
+                    <h:inputText id="persona" required="true" value="#{detallemesController.fieldForaneo.idCargoPersona}" />
+                    
+                    <p:commandButton  ajax="false" value="Crear Detalle Mes" action="#{detallemesController.saveDetalleMes()}"/>
+                    
+                </h:form>
+            </div>
+        </div>
+        <br />
+    </h:body>
+</html>

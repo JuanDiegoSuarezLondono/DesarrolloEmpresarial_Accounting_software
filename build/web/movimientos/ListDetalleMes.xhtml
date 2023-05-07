@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Listar Detalle Mes</title>
+    </h:head>
+    <h:body>
+            <div style="width: 100%; height: 450px;">
+            <div><h1>Listar Detalles Mes</h1></div>
+            <h:form>
+                <p:growl id="mensajes" sticky="true"/>
+                    <p:breadCrumb>
+                        <p:menuitem value="#{textoProyecto.Inicio}" url="../index.xhtml"></p:menuitem>
+                    </p:breadCrumb>
+                <p:dataTable value="#{detallemesController.detalleMesList}" var="registros" >
+                    <p:column style="width: 20%; text-align: center;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesPersona}</f:facet>
+                        #{registros.cargoPersona.persona.primerNombre} #{registros.cargoPersona.persona.primerApellido} #{registros.cargoPersona.persona.segundoApellido}<br/>
+                    </p:column>
+                    <p:column style="width: 10%;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesCargo}</f:facet>
+                        #{registros.cargoPersona.cargo.nombreCargo} <br/>
+                    </p:column>
+                    <p:column style="width: 10%;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesHoras}</f:facet>
+                        #{registros.horasExtras} <br/>
+                    </p:column>
+                    <p:column style="width: 10%;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesDias}</f:facet>
+                        #{registros.diasTrabajados} <br/>
+                    </p:column>
+                    <p:column style="width: 10%;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesSalario}</f:facet>
+                        $ #{registros.cantidadTrabajo} <br/>
+                    </p:column>
+                    <p:column style="width: 10%;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesAuxilio}</f:facet>
+                        $ #{registros.auxlioCantidad} <br/>
+                    </p:column>
+                    <p:column style="text-align: center;">
+                        <f:facet name="header">#{textoProyecto.Actualizar}</f:facet>
+                        <p:commandButton ajax="false" value="Actualizar" action="#{detallemesController.updateDetalleMes(registros)}"/>
+                    </p:column>
+                    <p:column style=" text-align: center;">
+                        <f:facet name="header">#{textoProyecto.Eliminar}</f:facet>
+                        <p:commandButton ajax="false" value="Eliminar" action="#{detallemesController.deleteDetalleMes(registros)}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </div>
+        <br />
+    </h:body>
+</html>

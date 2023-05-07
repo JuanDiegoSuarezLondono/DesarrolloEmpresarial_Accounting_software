@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Listar Detalle de Movimiento Mes</title>
+    </h:head>
+    <h:body>
+            <div style="width: 100%; height: 450px;">
+            <div><h1>Listar Detalles de Movimiento Mes</h1></div>
+            <h:form>
+                <p:growl id="mensajes" sticky="true"/>
+                    <p:breadCrumb>
+                        <p:menuitem value="#{textoProyecto.Inicio}" url="../index.xhtml"></p:menuitem>
+                    </p:breadCrumb>
+                <p:dataTable value="#{detallemesmovimientoController.detalleMesMovimientoList}" var="registros" >
+                    <p:column style="width: 11%; text-align: center;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesMovimientoPersona}</f:facet>
+                        #{registros.perTipoPer.persona.primerNombre} #{registros.perTipoPer.persona.primerApellido} #{registros.perTipoPer.persona.segundoApellido}<br/>
+                    </p:column>
+                    <p:column style="width: 7%; text-align: center;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesMovimientoCuenta}</f:facet>
+                        #{registros.cuenta.idCuenta}<br/>
+                    </p:column>
+                    <p:column style="width: 8%; text-align: center;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesMovimientoTipoPersona}</f:facet>
+                        #{registros.perTipoPer.tipoPer.nomTipoPer}<br/>
+                    </p:column>
+                    <p:column style="width: 7%; text-align: center;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesMovimientoCargo}</f:facet>
+                        #{registros.cargoPer.cargo.nombreCargo}<br/>
+                    </p:column>
+                    <p:column style="width: 7%; text-align: center;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesMovimientoFactura}</f:facet>
+                        #{registros.factura.idFactura}<br/>
+                    </p:column>
+                    <p:column style="width: 10%; text-align: center;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesMovimientoTipoDoc}</f:facet>
+                        #{registros.tipoDoc}<br/>
+                    </p:column>
+                    <p:column style="width: 10%; text-align: center;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesMovimientoFechaIni}</f:facet>
+                        #{registros.fechaInicio.year}/#{registros.fechaInicio.month}/#{registros.fechaInicio.day}<br/>
+                    </p:column>
+                    <p:column style="width: 10%; text-align: center;">
+                        <f:facet name="header">#{textoProyecto.TextoDetalleMesMovimientoFechaFin}</f:facet>
+                        #{registros.fechafin.year}/#{registros.fechafin.month}/#{registros.fechafin.day}<br/>
+                    </p:column>
+                    <p:column style="text-align: center;">
+                        <f:facet name="header">#{textoProyecto.Actualizar}</f:facet>
+                        <p:commandButton ajax="false" value="Actualizar" action="#{detallemesmovimientoController.updateDetalleMesMovimiento(registros)}"/>
+                    </p:column>
+                    <p:column style=" text-align: center;">
+                        <f:facet name="header">#{textoProyecto.Eliminar}</f:facet>
+                        <p:commandButton ajax="false" value="Eliminar" action="#{detallemesmovimientoController.deleteDetalleMesMovimiento(registros)}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </div>
+        <br />
+    </h:body>
+</html>

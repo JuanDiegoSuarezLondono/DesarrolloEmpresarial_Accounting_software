@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Proyecto de Desarrollo Empresarial</title>
+    </h:head>
+    <h:form>
+        <h:body>
+            <p:growl id="mensajes" sticky="true"> </p:growl>
+
+            <br/>
+
+            <p:breadCrumb>
+                <p:menuitem value="#{textoProyecto.Inicio}" url="/faces/index.xhtml"></p:menuitem>
+            </p:breadCrumb>
+
+            <p:panelGrid columns="1">
+                <h:link value="#{textoProyecto.CrearPuc}" outcome="Contable/CreatePuc"></h:link>
+                <h:link value="#{textoProyecto.ListarPuc}" outcome="Contable/ListPuc"></h:link>
+                <h:link value="#{textoProyecto.CrearDetalleMes}" outcome="movimientos/CreateDetalleMes"></h:link>
+                <h:link value="#{textoProyecto.ListarDetalleMes}" outcome="movimientos/ListDetalleMes"></h:link>
+                <h:link value="#{textoProyecto.CrearDetalleMesMovimiento}" outcome="movimientos/CreateDetalleMesMovimiento"></h:link>
+                <h:link value="#{textoProyecto.ListarDetalleMesMovimiento}" outcome="movimientos/ListDetalleMesMovimiento"></h:link>
+            </p:panelGrid>
+        </h:body>
+    </h:form>
+</html>
+
